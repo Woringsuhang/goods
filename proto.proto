@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package stream;
+option go_package="./goods";
+message GoodsGetReq {
+  string id = 10;
+}
+message Data{
+  int64 id = 10;
+  string goodsName = 20;
+  float goodsPrice=30;
+  int64 goodsNum=40;
+  int64 state=50;
+}
+message GoodsGetResp {
+  Data data = 1;
+}
+
+service Goods {
+  rpc GoodsGet(GoodsGetReq) returns (GoodsGetResp);
+}
